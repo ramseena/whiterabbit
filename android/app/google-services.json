@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "143697054999",
+    "project_id": "whiterab-35c05",
+    "storage_bucket": "whiterab-35c05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143697054999:android:6072e2613d52700cc3bb52",
+        "android_client_info": {
+          "package_name": "com.whiterab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143697054999-vvvppdlr99nqf7bqjqtsgbelb98rqki6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdM-kjwIGa_T3_Sf2l2MS04KlUzjqOUOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143697054999-vvvppdlr99nqf7bqjqtsgbelb98rqki6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
