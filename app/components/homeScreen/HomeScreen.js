@@ -56,15 +56,13 @@ const HomeScreen = props => {
     database()
       .ref('employee/list')
       .on('value', snapshot => {
-        if(snapshot.val())
-        {
-        const emp = snapshot.toJSON()
+        if (snapshot.val()) {
+          const emp = snapshot.toJSON()
 
-        setFilteredDataSource(emp)
-        setData(emp)
-        setLoading(false)
-        }
-        else{
+          setFilteredDataSource(emp)
+          setData(emp)
+          setLoading(false)
+        } else {
           getEmployeeData()
         }
       })
@@ -85,7 +83,25 @@ const HomeScreen = props => {
 
     return returnArr
   }
+  const renderItem = ({item}) => (
+    <TouchableOpacity
+      onPress={() => props.navigation.navigate('DetailScreen', {item: item})}
+      style={{
+        borderRadius: 5,
+        margin: 5,
+        padding: 10,
+        borderWidth: 1,
+      }}>
+      <Text>{item.name}</Text>
+      <Text>{item.username}</Text>
 
+      <Image
+        style={{width: 25, height: 25, margin: 3}}
+        source={{uri: item.profile_image}}
+      />
+      {item.company ? <Text>{item.company.name}</Text> : null}
+    </TouchableOpacity>
+  )
   const searchFilterFunction = text => {
     if (text) {
       const newData = data.filter(item => {
@@ -118,29 +134,7 @@ const HomeScreen = props => {
             extraData={filteredDataSource}
             data={filteredDataSource}
             keyExtractor={({id}, index) => id}
-            renderItem={({item}) => {
-              return (
-                <TouchableOpacity
-                  onPress={() =>
-                    props.navigation.navigate('DetailScreen', {item: item})
-                  }
-                  style={{
-                    borderRadius: 5,
-                    margin: 5,
-                    padding: 10,
-                    borderWidth: 1,
-                  }}>
-                  <Text>{item.name}</Text>
-                  <Text>{item.username}</Text>
-
-                  <Image
-                    style={{width: 25, height: 25, margin: 3}}
-                    source={{uri: item.profile_image}}
-                  />
-                  {item.company ? <Text>{item.company.name}</Text> : null}
-                </TouchableOpacity>
-              )
-            }}
+            renderItem={renderItem}
           />
         </View>
       )}
